@@ -2,12 +2,14 @@ require("dotenv").config()
 const express = require("express");
 const helmet = require("helmet");
 const cors = require("cors")
+const morgan = require("morgan")
 const router = require("./routes/resturantRoutes")
 
 
 const app = express()
 const PORT = process.env.PORT || 3002;
 
+app.use(morgan("dev"))
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
 app.use(helmet())
